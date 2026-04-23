@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 import { 
-  AlertCircle, CheckCircle2, Battery, Zap, Settings, 
-  Menu, Plug, ChevronLeft, ChevronRight 
+  AlertCircle, Battery, Zap, Settings, 
+  Menu, Plug
 } from 'lucide-react';
 import {
   Chart as ChartJS,

@@ -34,13 +34,29 @@ let Vehicle;
 
 async function connectDB() {
   const uri = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/dashboard';
+
+  // Diagnostic: show what we are trying to connect to
+  if (process.env.MONGODB_URI) {
+    console.log('📝 MONGODB_URI is set in environment');
+  } else {
+    console.warn('📝 MONGODB_URI is NOT set — falling back to local MongoDB');
+  }
+
   try {
     await mongoose.connect(uri);
     console.log('✅ MongoDB connected');
     useMemory = false;
   } catch (err) {
-    console.warn('⚠️  MongoDB not available, using in-memory store');
-    console.warn('   To use MongoDB Atlas, set MONGODB_URI in backend/.env');
+    console.error('\n❌ MongoDB connection failed');
+    console.error('   Error:', err.message);
+    console.error('\n🔍 Troubleshooting hints:');
+    console.error('   1. Is MONGODB_URI spelled exactly right in backend/.env?');
+    console.error('   2. Did you replace <password> with your actual password?');
+    console.error('   3. Does your password contain @ : / # ? & = + $ , % ?');
+    console.error('      → If so, URL-encode it (e.g. @ → %40, # → %23)');
+    console.error('   4. In Atlas → Network Access → is 0.0.0.0/0 (Allow from Anywhere) added?');
+    console.error('   5. Does the URI end with /dashboard?retryWrites=true&w=majority');
+    console.error('\n⚠️  Starting in in-memory fallback mode...\n');
     useMemory = true;
   }
 }
