@@ -8,7 +8,6 @@
 | ---------------------- | ------------------------------------------------------------------------------------------------------------------ |
 | **Hosted Application** | [https://epiroc-vehicle-dashboard.vercel.app](https://epiroc-vehicle-dashboard.vercel.app)                         |
 | **GitHub Repository**  | [https://github.com/Ajinkyajoe/epiroc-vehicle-dashboard.](https://github.com/Ajinkyajoe/epiroc-vehicle-dashboard.) |
-| **Read-Only Database** | [MongoDB Atlas Data Explorer](mongodb+srv://guest:guest@cluster0.tqnponq.mongodb.net/?appName=Cluster0)            |
 
 ---
 
