@@ -130,6 +130,14 @@ app.post('/api/vehicle', async (req, res) => {
   }
 });
 
+app.get('/', (req, res) => res.json({
+  message: 'Epiroc Vehicle Dashboard API',
+  endpoints: {
+    vehicle: '/api/vehicle',
+    health: '/health'
+  }
+}));
+
 app.get('/health', (req, res) => res.json({ status: 'OK', mode: useMemory ? 'memory' : 'mongodb' }));
 
 // Real-time emulation cron every 3 seconds
